@@ -1,6 +1,6 @@
-import Link from "next/link";
+import LoadingCard from "@/components/ServiceLoadingCard";
 
-const ServiceDetailPage = ({ params }) => {
+const ServicesLoading = () => {
   const data = [
     {
       _id: "65c9f1e6a1b2c3d4e5f67890",
@@ -31,29 +31,13 @@ const ServiceDetailPage = ({ params }) => {
         "Expert visa consultation and application assistance for hassle-free travel.",
     },
   ];
-  const id = params.id;
-  const singleData = data.find((d) => d._id == id);
-  if (singleData) {
-    return (
-      <div>
-        <h1 className="text-3xl font-bold">ServiceDetailPage</h1>
-        <p className="text-2xl font-semibold">Service ID: {id}</p>
-        <p className="text-2xl font-semibold">
-          Service Name: {singleData.service_name}
-        </p>
-        <img src={singleData.service_image} alt="" />
-      </div>
-    );
-  } else {
-    return (
-      <div>
-        <h1 className="text-red-500 font-bold text-2xl">Not Found Service</h1>
-        <Link href="/services">
-          <button className="btn btn-accent">Go Back Services Page</button>
-        </Link>
-      </div>
-    );
-  }
+  return (
+    <div className="grid grid-cols-3 gap-4">
+      {data.map((blog) => (
+        <LoadingCard key={blog.id}></LoadingCard>
+      ))}
+    </div>
+  );
 };
 
-export default ServiceDetailPage;
+export default ServicesLoading;
