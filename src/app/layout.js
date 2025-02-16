@@ -24,7 +24,7 @@ export default function RootLayout({ children }) {
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <Navbar></Navbar>
-        <main className="h-screen h-max-[600] "> {children}</main>
+        <main className="min-h-[95vh]"> {children}</main>
         <footer className="text-center text-white bg-slate-600">
           Awesome NextJs project
         </footer>
