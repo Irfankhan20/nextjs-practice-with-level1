@@ -1,5 +1,5 @@
 import Link from "next/link";
-
+import style from "./post.module.css";
 const PostsPage = async () => {
   const res = await fetch("https://jsonplaceholder.typicode.com/posts");
   const posts = await res.json();
@@ -12,11 +12,13 @@ const PostsPage = async () => {
             className="p-4 border-2 rounded-xl border-green-500  shadow-xl flex flex-col h-full"
             key={post.id}
           >
-            <p className=" text-green-600 flex flex-col flex-grow">
+            <p
+              className={`text-green-600 flex flex-col flex-grow ${style["post-title"]}`}
+            >
               <span className="font-bold underline text-black">Post tile:</span>{" "}
               {post.title}
             </p>
-            <p className="pt-1 text-green-600">
+            <p className="pt-1 text-green-600 testing-purpose-css-class">
               <span className="font-bold underline text-black">
                 Post Description:
               </span>
