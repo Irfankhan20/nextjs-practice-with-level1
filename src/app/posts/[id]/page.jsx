@@ -1,5 +1,20 @@
 import React from "react";
 
+export async function generateMetadata({ params }) {
+  // read route params
+  const id = (await params).id;
+
+  // fetch data
+  const product = await fetch(
+    `https://jsonplaceholder.typicode.com/posts/${id}`
+  ).then((res) => res.json());
+
+  return {
+    title: product.title,
+    description: product.body,
+  };
+}
+
 const SinglePost = async ({ params }) => {
   const res = await fetch(
     `https://jsonplaceholder.typicode.com/posts/${params.id}`
