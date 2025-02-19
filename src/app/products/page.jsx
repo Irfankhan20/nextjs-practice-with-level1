@@ -1,8 +1,13 @@
+import { redirect } from "next/navigation";
+
 const ProductsPage = async () => {
   const res = await fetch("http://localhost:3000/api/items", {
     cache: "force-cache",
   });
   const data = await res.json();
+  if (data.length > 4) {
+    redirect("/");
+  }
   return (
     <div>
       <h1 className="font-bold text-3xl text-center mt-10">

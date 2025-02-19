@@ -33,8 +33,8 @@ const ServicesLoading = () => {
   ];
   return (
     <div className="grid grid-cols-3 gap-4">
-      {data.map((blog) => (
-        <LoadingCard key={blog.id}></LoadingCard>
+      {data.map((blog, index) => (
+        <LoadingCard key={index}></LoadingCard>
       ))}
     </div>
   );
