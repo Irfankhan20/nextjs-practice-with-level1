@@ -9,11 +9,14 @@ const AddForm = () => {
     const form = e.target;
     const productName = form.productName.value;
     const payload = { productName };
-    const res = await fetch("http://localhost:3000/api/items", {
-      method: "POST",
-      body: JSON.stringify(payload),
-      headers: { "content-type": "application/json" },
-    });
+    const res = await fetch(
+      "https://learning-nextjs-level1.vercel.app/api/items",
+      {
+        method: "POST",
+        body: JSON.stringify(payload),
+        headers: { "content-type": "application/json" },
+      }
+    );
     const result = await res.json();
     console.log(result);
     form.reset();

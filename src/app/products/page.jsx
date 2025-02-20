@@ -1,13 +1,11 @@
-import { redirect } from "next/navigation";
+export const dynamic = "force-dynamic";
 
 const ProductsPage = async () => {
-  const res = await fetch("http://localhost:3000/api/items", {
-    cache: "force-cache",
-  });
+  const res = await fetch(
+    "https://learning-nextjs-level1.vercel.app/api/items"
+  );
   const data = await res.json();
-  if (data.length > 4) {
-    redirect("/");
-  }
+
   return (
     <div>
       <h1 className="font-bold text-3xl text-center mt-10">
