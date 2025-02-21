@@ -1,5 +1,6 @@
 "use client";
 import Link from "next/link";
+import { signIn } from "next-auth/react";
 import { usePathname } from "next/navigation";
 
 const Navbar = () => {
@@ -7,7 +8,7 @@ const Navbar = () => {
   if (!pathname.includes("dashboard")) {
     return (
       <div>
-        <nav className="flex justify-center">
+        <nav className="flex justify-center items-center">
           <ul className="flex justify-between w-1/2">
             <Link href="/">
               <li>Home</li>
@@ -29,6 +30,13 @@ const Navbar = () => {
             </Link>
             <Link href="/products/add">
               <li>Add Products </li>
+            </Link>
+            <Link href="/login">
+              <li>
+                <button onClick={() => signIn()} className="btn btn-accent">
+                  Login
+                </button>
+              </li>
             </Link>
           </ul>
         </nav>

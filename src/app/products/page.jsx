@@ -1,10 +1,11 @@
+// import dbConnect from "@/lib/dbConnect";
+
 export const dynamic = "force-dynamic";
 
 const ProductsPage = async () => {
-  const res = await fetch(
-    "https://learning-nextjs-level1.vercel.app/api/items"
-  );
+  const res = await fetch("http://localhost:3000/api/items");
   const data = await res.json();
+  // const data = await dbConnect("practice_data").find({}).toArray();
 
   return (
     <div>
